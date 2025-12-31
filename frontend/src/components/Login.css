@@ -1,0 +1,222 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #ffe4e6, #fff1f2, #fed7aa);
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Main wrapper from LoginPage.js */
+.main-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* --- Main Login Card Container --- */
+.login-container {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  max-width: 500px;
+  width: 100%;
+  transition: transform 0.3s ease;
+  border: 2px solid;
+  border-color: #ff5a86 #ffffff #ffffff #ffffff; /* Top, Right, Bottom, Left */
+  text-align: center;
+}
+
+.login-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Header Section --- */
+.login-header {
+  margin-bottom: 30px;
+}
+
+.heart-logo {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  background-color: #fff0f5;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.heart-icon {
+  color: #ff5a86;
+  width: 30px;
+  height: 30px;
+}
+
+.login-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.login-subtitle {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* --- Form Elements --- */
+.login-form {
+  text-align: left;
+}
+
+/* Login Method Toggle */
+.method-selector {
+  display: flex;
+  margin-bottom: 25px;
+  background-color: #f5f5f5;
+  border-radius: 30px;
+  padding: 4px;
+}
+
+.method-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border: none;
+  background: transparent;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 500;
+  color: #666;
+  transition: all 0.3s ease;
+}
+
+.method-btn.active {
+  background-color: #ff5a86;
+  color: white;
+  box-shadow: 0 2px 5px rgba(255, 90, 134, 0.3);
+}
+
+.method-icon {
+  margin-right: 8px;
+  width: 18px;
+  height: 18px;
+}
+
+/* Input Groups */
+.field-wrapper {
+  margin-bottom: 20px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #f0f0f0;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: white;
+  transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #ff5a86;
+  box-shadow: 0 0 0 3px rgba(255, 90, 134, 0.2);
+}
+
+.form-input.error {
+  border-color: #ff5a86;
+}
+
+.error-text {
+  color: #ff5a86;
+  font-size: 14px;
+  margin-top: 5px;
+  display: block;
+}
+
+/* --- Buttons --- */
+.login-button {
+  background-color: #ff5a86;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 30px; /* Pill shape like in the picture */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.login-button:hover {
+  background-color: #ff4a76;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(255, 90, 134, 0.3);
+}
+
+.login-button:active {
+  transform: translateY(0);
+}
+
+/* --- Footer Section --- */
+.form-footer {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+}
+
+.switch-form {
+  background: none;
+  border: none;
+  color: #ff5a86;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+  margin-left: 5px;
+}
+
+.switch-form:hover {
+  color: #ff4a76;
+  text-decoration: underline;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+  .login-container {
+    margin: 20px;
+    padding: 20px;
+  }
+  
+  .method-selector {
+    margin-bottom: 20px;
+  }
+  
+  .method-btn {
+    padding: 8px;
+    font-size: 14px;
+  }
+  
+  .method-icon {
+    width: 16px;
+    height: 16px;
+  }
+}

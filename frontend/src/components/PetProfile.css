@@ -1,0 +1,338 @@
+/* --- 1. Global Styles & Variables --- */
+:root {
+  --primary-color: #e91e63; /* A friendly blue */
+  --primary-hover-color: #e91e63;
+  --secondary-color: #e91e63; /* A warm orange for accents */
+  --background-color: #f4f7f6;
+  --card-background: #ffffff;
+  --text-color: #333333;
+  --text-light-color: #777777;
+  --border-color: #e0e0e0;
+  --heart-color: #e74c3c;
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.15);
+  --border-radius: 12px;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* --- 2. Main Layout --- */
+/* Add a class like "pet-profile-container" to your top-level div */
+.pet-profile-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* --- 3. Header Section --- */
+/* Add a class like "pet-profile-header" to your header div */
+.pet-profile-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.pet-profile-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+.pet-profile-header p {
+  font-size: 1.1rem;
+  color: var(--text-light-color);
+}
+
+/* --- 4. Filter Buttons --- */
+/* Add a class like "filter-buttons" to your filter div */
+.filter-buttons {
+  display: flex;
+  justify-content: center; /* This centers the buttons horizontally */
+  gap: 1rem; /* Increased gap for better spacing with larger buttons */
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-buttons button {
+  padding: 0.8rem 2rem; /* Increased padding to make buttons bigger */
+  border: 2px solid var(--border-color);
+  background-color: var(--card-background);
+  border-radius: 25px; /* Pill shape */
+  font-size: 1.1rem; /* Increased font size */
+  font-weight: 500;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.filter-buttons button:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+/* The 'active' class should be applied via JS state in the FilterButton component */
+.filter-buttons button.active {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: #ffffff;
+}
+
+/* --- 5. Pet Grid --- */
+/* Add a class like "pet-grid" to the div that maps over the pets */
+.pet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* --- 6. Pet Card --- */
+/* Add a class like "pet-card" to the main div for each pet */
+.pet-card {
+  background-color: var(--card-background);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pet-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* --- 7. Card Image & Favorite Button --- */
+/* Add a class like "card-image-container" to the div wrapping the image */
+.card-image-container {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+
+.card-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the area without distortion */
+  display: block;
+}
+
+/* Add a class like "favorite-button" to the div wrapping the Heart icon */
+.favorite-button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: rgba(255, 255, 255, 0.85);
+  color: var(--heart-color);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.favorite-button:hover {
+  background-color: #ffffff;
+  transform: scale(1.1);
+}
+
+/* --- 8. Card Content --- */
+/* Add a class like "card-content" to the main info div of the card */
+.card-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Allows content to fill space, pushing buttons down */
+}
+
+.card-content h3 {
+  font-size: 1.5rem;
+  margin: 0 0 0.25rem 0;
+  color: var(--text-color);
+}
+
+.card-content > p:nth-of-type(1) { /* The breed paragraph */
+  font-size: 1rem;
+  color: var(--text-light-color);
+  margin: 0 0 1rem 0;
+}
+
+/* --- 9. Meta Info (Age, Location) --- */
+/* Add a class like "card-meta" to the div with age and location */
+.card-meta {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-light-color);
+}
+
+.card-meta span {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* --- 10. Personality Traits --- */
+/* Add a class like "personality-traits" to the div wrapping the traits */
+.personality-traits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.personality-traits span {
+  background-color: #eef7ff;
+  color: var(--primary-color);
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* --- 11. Description --- */
+/* Add a class like "card-description" to the description paragraph */
+/* NOT RECOMMENDED */
+.card-description {
+  font-size: 0.95rem;
+  color: var(--text-light-color);
+  margin-bottom: 1.5rem;
+  line-height: 1.5; /* Assuming a line-height of 1.5 */
+  max-height: calc(1.5rem * 3); /* 3 lines */
+  overflow: hidden;
+}
+/* --- 12. Action Buttons --- */
+/* Add a class like "card-actions" to the div with the buttons */
+.card-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.card-actions button {
+  flex-grow: 1; /* Both buttons take equal space */
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.card-actions button:active {
+  transform: scale(0.98);
+}
+
+/* Style the Details button (secondary) */
+.card-actions button:first-of-type {
+  background-color: #f0f0f0;
+  color: var(--text-color);
+}
+.card-actions button:first-of-type:hover {
+  background-color: #e0e0e0;
+}
+
+/* Style the Adopt button (primary) */
+.card-actions button:last-of-type {
+  background-color: var(--secondary-color);
+  color: #ffffff;
+}
+.card-actions button:last-of-type:hover {
+  background-color: #e91e63;
+}
+
+
+/* --- 13. Modal Styles --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: var(--card-background);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-lg);
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  animation: modalFadeIn 0.3s ease;
+}
+
+.modal-content p {
+  font-size: 1.1rem;
+  color: var(--text-color);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.modal-close-btn {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.modal-close-btn:hover {
+  background-color: #d81b60; /* Slightly darker shade */
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- 14. Responsive Design --- */
+@media (max-width: 768px) {
+  .pet-profile-header h1 {
+    font-size: 2rem;
+  }
+
+  .pet-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .pet-grid {
+    grid-template-columns: 1fr;
+  }
+}

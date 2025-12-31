@@ -1,0 +1,305 @@
+/* Food.css - Complete styling for the Food Guide component */
+
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Main container */
+.food-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header */
+.food-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.food-header h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.food-header p {
+  font-size: 1.1rem;
+  color: #7f8c8d;
+}
+
+/* Search and Filter */
+.food-filter {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+@media (min-width: 640px) {
+  .food-filter {
+    flex-direction: row;
+  }
+}
+
+.food-filter input {
+  flex: 1;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.filter-buttons button {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  background-color: #f0f0f0;
+  transition: all 0.3s ease;
+}
+
+.filter-buttons button.active {
+  background-color: #e91e63;
+  color: white;
+}
+
+.filter-buttons button:nth-child(2).active {
+  background-color: #4caf50;
+}
+
+.filter-buttons button:nth-child(3).active {
+  background-color: #f44336;
+}
+
+/* Food Sections */
+.food-section {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.food-section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.food-section-title svg {
+  width: 24px;
+  height: 24px;
+}
+
+.food-section-title h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.food-section:first-of-type .food-section-title {
+  color: #4caf50;
+}
+
+.food-section:last-of-type .food-section-title {
+  color: #f44336;
+}
+
+.food-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .food-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .food-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Food Cards */
+.food-card {
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+.food-card.safe {
+  background-color: #e8f5e9;
+  border: 1px solid #a5d6a7;
+}
+
+.food-card.unsafe {
+  background-color: #ffebee;
+  border: 1px solid #ef9a9a;
+}
+
+.food-card svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  width: 20px;
+  height: 20px;
+}
+
+.food-card.safe svg {
+  color: #4caf50;
+}
+
+.food-card.unsafe svg {
+  color: #f44336;
+}
+
+.food-name {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.food-category {
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+.food-card.safe .food-category {
+  color: #4caf50;
+}
+
+.food-card.unsafe .food-category {
+  color: #f44336;
+}
+
+.food-notes {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Important Reminders Section */
+.food-reminders {
+  background-color: #fff8e1;
+  border: 2px solid #ffecb3;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+  display: block;
+}
+
+.food-reminders-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.food-reminders-header svg {
+  color: #fbc02d;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.food-reminders-header h3 {
+  color: #f57f17;
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.food-reminders-list {
+  list-style-type: none;
+  padding-left: 36px;
+  color: #f57f17;
+  margin: 0;
+}
+
+.food-reminders-list li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+/* Feeding Guidelines Section */
+.food-guidelines {
+  background: linear-gradient(to right, #fce4ec, #f8bbd0);
+  border-radius: 12px;
+  padding: 24px;
+  display: block;
+}
+
+.food-guidelines-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.food-guidelines-header svg {
+  color: #c2185b;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.food-guidelines-header h3 {
+  color: #212121;
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.food-guidelines-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .food-guidelines-content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.food-guidelines-dos, .food-guidelines-donts {
+  color: #424242;
+}
+
+.food-guidelines-dos h4, .food-guidelines-donts h4 {
+  color: #212121;
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+}
+
+.food-guidelines-dos ul, .food-guidelines-donts ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.food-guidelines-dos li, .food-guidelines-donts li {
+  margin-bottom: 4px;
+  line-height: 1.5;
+}

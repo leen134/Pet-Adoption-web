@@ -1,0 +1,112 @@
+/* src/components/Header.css */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Logo Styles */
+.logo {
+  flex: 0 0 auto;
+}
+
+.logo h2 {
+  color: #333;
+  font-size: 1.5rem;
+  margin: 0;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Navigation Menu Styles */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-left: auto; /* Pushes menu to the right */
+  margin-right: 30px; /* Space between menu and login button */
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: #555;
+  font-size: 1.15rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-menu a:hover {
+  color: #000;
+}
+
+.nav-menu a.about-link {
+  color: #e91e63; /* Red color for About Us */
+  font-weight: 600;
+}
+
+/* Header Actions (Login Button) */
+.header-actions {
+  flex: 0 0 auto;
+}
+
+.login-btn-main {
+  text-decoration: none;
+  background-color: #e91e63; /* Red background */
+  color: white;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background-color 0.2s ease;
+  display: inline-block;
+}
+
+.login-btn-main:hover {
+  background-color: #d81b60; /* Darker red on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .header {
+    padding: 15px 20px;
+  }
+  
+  .nav-menu {
+    gap: 15px;
+    margin-right: 15px;
+  }
+  
+  .nav-menu a {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  
+  .nav-menu {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    margin: 0;
+    overflow-x: auto; /* Allow horizontal scroll on very small screens */
+    padding-bottom: 5px;
+  }
+  
+  .header-actions {
+    margin-left: auto;
+  }
+}

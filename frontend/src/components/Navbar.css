@@ -1,0 +1,73 @@
+.navbar {
+  background-color: var(--color-background);
+  box-shadow: 0 2px 6px rgba(247, 108, 108, 0.2);
+  padding: 12px 24px;
+  display: flex;
+  justify-content: center; /* Changed from space-between to center */
+  align-items: center;
+  font-family: 'Arial', sans-serif;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #000;
+  text-decoration: none;
+  position: absolute; /* Position logo absolutely */
+  left: 24px; /* Position logo on the left */
+}
+
+.navbar-menu {
+  display: flex;
+  gap: 20px;
+  text-align: center;
+}
+
+.navbar-menu a {
+  text-decoration: none;
+  color: #000;
+  font-size: 16px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-menu a:hover,
+.navbar-menu a.active {
+  background-color: #f76c6c;
+  color: #fff;
+}
+
+/* Add a hamburger menu for mobile devices */
+.navbar-toggle {
+  display: none;
+  position: absolute;
+  right: 24px;
+  cursor: pointer;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .navbar-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: var(--color-background);
+    box-shadow: 0 2px 6px rgba(247, 108, 108, 0.2);
+    padding: 12px 0;
+  }
+  
+  .navbar-menu.active {
+    display: flex;
+  }
+  
+  .navbar-toggle {
+    display: block;
+  }
+}
