@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Heart, Mail, Phone, Lock } from "lucide-react";
 import "./Login.css";
 
-// *** CHANGE 1: Add the new props for user feedback ***
+
 export default function Login({ onSubmit, onToggleForm, isLoading, message, isError }) {
   const [loginMethod, setLoginMethod] = useState("email");
   const [email, setEmail] = useState("");
@@ -38,7 +38,7 @@ export default function Login({ onSubmit, onToggleForm, isLoading, message, isEr
       return;
     }
 
-    // *** CHANGE 2: Create the data object in the format the backend expects ***
+  
     const loginData = {
       username: loginMethod === "email" ? email : phone,
       password
@@ -58,7 +58,7 @@ export default function Login({ onSubmit, onToggleForm, isLoading, message, isEr
       </div>
 
       <form onSubmit={handleSubmit} className="login-form">
-        {/* Login Method Toggle */}
+        {}
         <div className="method-selector">
           <button
             type="button"
@@ -78,7 +78,7 @@ export default function Login({ onSubmit, onToggleForm, isLoading, message, isEr
           </button>
         </div>
 
-        {/* Email/Phone Input */}
+        {}
         {loginMethod === "email" ? (
           <div className="field-wrapper email">
             <input
@@ -105,7 +105,7 @@ export default function Login({ onSubmit, onToggleForm, isLoading, message, isEr
           </div>
         )}
 
-        {/* Password Input */}
+        {}
         <div className="field-wrapper password">
           <input
             type="password"
@@ -123,10 +123,10 @@ export default function Login({ onSubmit, onToggleForm, isLoading, message, isEr
           {isLoading ? "Logging in..." : "Login"}
         </button>
 
-        {/* *** CHANGE 4: Display the success or error message from the parent component *** */}
+        {/* *** CHANGE 4: Display the success or error message*** */}
         {message && <p className={`form-message ${isError ? "error" : "success"}`}>{message}</p>}
 
-        {/* Toggle to Signup */}
+        
         <div className="form-footer">
           <p>
             Don't have an account?

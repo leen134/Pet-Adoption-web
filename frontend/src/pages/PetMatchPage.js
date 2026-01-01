@@ -37,7 +37,7 @@ export default function PetMatchPage() {
       }
     } catch (error) {
       console.error("Error saving pet match answers:", error);
-      // We don't block the UI here, just log the error
+      
     }
   };
 

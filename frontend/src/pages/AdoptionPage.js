@@ -63,7 +63,7 @@ export default function AdoptionPage() {
       }
     } catch (error) {
       console.error("Error submitting adoption form:", error);
-      // Display the backend error message if available
+      // Displaying  backend error message 
       if (error.response && error.response.data && error.response.data.message) {
         alert(error.response.data.message);
       } else {

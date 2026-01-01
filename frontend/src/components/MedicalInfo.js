@@ -12,7 +12,7 @@ export default function MedicalInfo({ pet, medicalData }) {
 
   return (
     <div className="space-y-8">
-      {/* Header */}
+ 
       <div className="text-center">
         <h1 className="text-2xl font-semibold">
           {pet ? `Medical Records for ${pet.name}` : "Medical Information"}
@@ -22,9 +22,9 @@ export default function MedicalInfo({ pet, medicalData }) {
         </p>
       </div>
 
-      {/* Info Grid */}
+      
       <div className="grid md:grid-cols-2 gap-6">
-        {/* Vaccination Records */}
+        
         <div className="bg-white rounded-xl shadow p-6 space-y-4 tip-section">
           <div className="flex items-center gap-3">
             <div className="p-3 bg-blue-100 rounded-lg">
@@ -42,7 +42,7 @@ export default function MedicalInfo({ pet, medicalData }) {
           </ul>
         </div>
 
-        {/* Current Medications */}
+      
         <div className="bg-white rounded-xl shadow p-6 space-y-4 tip-section">
           <div className="flex items-center gap-3">
             <div className="p-3 bg-green-100 rounded-lg">
@@ -61,7 +61,7 @@ export default function MedicalInfo({ pet, medicalData }) {
         </div>
       </div>
 
-      {/* Allergies & Vet Info */}
+     
       <div className="grid md:grid-cols-2 gap-6">
         <div className="bg-white rounded-xl shadow p-6 space-y-4 tip-section">
           <div className="flex items-center gap-3">

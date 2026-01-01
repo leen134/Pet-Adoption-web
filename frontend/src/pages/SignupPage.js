@@ -1,18 +1,19 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios"; // 1. Import axios for making HTTP requests
 import Signup from "../components/Signup";
 import "../components/Signup.css";
+import axios from "axios"; 
+
 
 export default function SignupPage() {
   const navigate = useNavigate();
   
-  // 2. Add state for user feedback (loading, messages)
+  //  Add state for user feedback 
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState("");
   const [isError, setIsError] = useState(false);
 
-  // 3. Define the backend API URL
+  //Define the backend API URL
   const API_URL = "http://localhost:3001/api/users";
 
   const handleSignupSubmit = async (data) => {
@@ -20,7 +21,7 @@ export default function SignupPage() {
     setMessage("");
 
     try {
-      // 4. Make the POST request to the backend
+      // Make the POST request to the backend
       const response = await axios.post(API_URL, {
         name: data.name,
         age: data.age,
@@ -33,7 +34,7 @@ export default function SignupPage() {
       setMessage("Account created successfully! Redirecting to login...");
       setIsError(false);
 
-      // Store user info in localStorage
+      // Store user 
       if (response.data.user) {
         localStorage.setItem('user', JSON.stringify(response.data.user));
       }
@@ -44,7 +45,7 @@ export default function SignupPage() {
       }, 2000);
 
     } catch (error) {
-      // Handle errors (e.g., email already exists, server down)
+      // Handle errors 
       console.error("Signup error:", error);
       const errorMessage = error.response?.data?.message || "An error occurred during signup. Please try again.";
       setMessage(errorMessage);

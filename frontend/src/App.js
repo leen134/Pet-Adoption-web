@@ -17,7 +17,7 @@ import "./App.css";
 export default function App() {
 
 return (
-<BrowserRouter>
+<BrowserRouter basename="/Pet-Adoption-Web">
 <Header />
 <main>
 <Routes>

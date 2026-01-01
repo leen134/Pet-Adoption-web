@@ -79,7 +79,7 @@ export default function Signup({ onSubmit, onToggleForm }) {
         <p className="auth-tagline">Create an account to find your perfect pet</p>
       </div>
 
-      <form onSubmit={handleSubmit} className="auth-form">
+      <form onSubmit={handleSubmit} className="auth-form"> 
         {}
         <div className="input-group">
           <input
