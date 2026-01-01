@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "name": "pet-adoption-react-project",
   "version": "1.0.0",
   "description": "",
@@ -14,8 +13,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-=======
->>>>>>> 09e75f50304e0a6fa3d2e3939e5160b5f14438ed
   "dependencies": {
     "react-router-dom": "^6.30.2"
   }
