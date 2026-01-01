@@ -14,7 +14,10 @@ export default function LoginPage() {
     const [isError, setIsError] = useState(false);
 
     
-  const API_URL = "http://localhost:3001/api/login";
+  // API URL - uses environment variable in production
+  const API_URL = process.env.REACT_APP_API_URL 
+    ? `${process.env.REACT_APP_API_URL}/api/login`
+    : "http://localhost:3001/api/login";
 
     const handleLoginSubmit = async (data) => {
         setIsLoading(true);

@@ -1,22 +1,38 @@
 const express = require("express");
 const cors = require("cors");
 const mysql = require("mysql2");
-const bcrypt = require('bcryptjs'); 
-
+const bcrypt = require('bcryptjs');
+require('dotenv').config();
 
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
+// CORS configuration - allow frontend URL
+const allowedOrigins = [
+  'http://localhost:3000',
+  'https://leen134.github.io',
+  process.env.FRONTEND_URL
+].filter(Boolean);
 
-app.use(cors());
+app.use(cors({
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) !== -1 || process.env.NODE_ENV !== 'production') {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
+}));
 app.use(express.json());
 
-
 const pool = mysql.createPool({
-  host: "localhost",
-  user: "root",
-  password: "", 
-  database: "testdb"
+  host: process.env.DB_HOST || "localhost",
+  user: process.env.DB_USER || "root",
+  password: process.env.DB_PASSWORD || "", 
+  database: process.env.DB_NAME || "testdb",
+  port: process.env.DB_PORT || 3306
 });
 
 const createMedicalSql = `

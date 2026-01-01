@@ -13,8 +13,10 @@ export default function SignupPage() {
   const [message, setMessage] = useState("");
   const [isError, setIsError] = useState(false);
 
-  //Define the backend API URL
-  const API_URL = "http://localhost:3001/api/users";
+  //Define the backend API URL - uses environment variable in production
+  const API_URL = process.env.REACT_APP_API_URL 
+    ? `${process.env.REACT_APP_API_URL}/api/users`
+    : "http://localhost:3001/api/users";
 
   const handleSignupSubmit = async (data) => {
     setIsLoading(true);
